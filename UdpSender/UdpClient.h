@@ -11,6 +11,8 @@ namespace Idudpclient {
 	class TIdUDPClient;
 }
 
+struct UdpClientConf;
+
 class UdpClient
 {
 private:
@@ -19,7 +21,7 @@ private:
 public:
 	UdpClient(void);
 	~UdpClient(void);
-	int Send(AnsiString bindAddress, AnsiString address, unsigned short port, const std::vector<uint8_t> &data);
+	int Send(const UdpClientConf &conf, const std::vector<uint8_t> &data);
 };
 
 extern UdpClient udpClient;

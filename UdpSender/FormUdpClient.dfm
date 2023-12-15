@@ -13,6 +13,7 @@ object frmUdpClient: TfrmUdpClient
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   DesignSize = (
     409
     253)
@@ -68,6 +69,7 @@ object frmUdpClient: TfrmUdpClient
     Height = 21
     TabOrder = 1
     Text = '225.1.1.1'
+    OnChange = edAddressChange
   end
   object edPort: TEdit
     Left = 226
@@ -76,6 +78,7 @@ object frmUdpClient: TfrmUdpClient
     Height = 21
     TabOrder = 2
     Text = '4242'
+    OnChange = edPortChange
   end
   object memo: TMemo
     Left = 8
@@ -97,5 +100,6 @@ object frmUdpClient: TfrmUdpClient
       '000000000000000')
     ScrollBars = ssVertical
     TabOrder = 3
+    OnChange = memoChange
   end
 end

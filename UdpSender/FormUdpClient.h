@@ -21,6 +21,10 @@ __published:	// IDE-managed Components
 	TMemo *memo;
 	TLabel *lblData;
 	void __fastcall btnSendClick(TObject *Sender);
+	void __fastcall edAddressChange(TObject *Sender);
+	void __fastcall edPortChange(TObject *Sender);
+	void __fastcall memoChange(TObject *Sender);
+	void __fastcall FormShow(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
 	__fastcall TfrmUdpClient(TComponent* Owner);

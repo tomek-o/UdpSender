@@ -41,8 +41,7 @@ public:
 		int iMaxFileSize;
 		unsigned int iMaxUiLogLines;
 	} Logging;
-
-
+    UdpClientConf udpClient;
 };
 
 extern Settings appSettings;

@@ -95,6 +95,8 @@ int Settings::Read(AnsiString asFileName)
 	}
 	Logging.iMaxUiLogLines = LoggingJson.get("MaxUiLogLines", 5000).asInt();
 
+	udpClient.fromJson(root["udpClient"]);
+
 	return 0;
 }
 
@@ -115,6 +117,7 @@ int Settings::Write(AnsiString asFileName)
 	root["Logging"]["MaxFileSize"] = Logging.iMaxFileSize;
 	root["Logging"]["MaxUiLogLines"] = Logging.iMaxUiLogLines;
 
+	udpClient.toJson(root["udpClient"]);
 
 	std::string outputConfig = writer.write( root );
 

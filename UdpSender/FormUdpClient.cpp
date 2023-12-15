@@ -46,13 +46,43 @@ void __fastcall TfrmUdpClient::btnSendClick(TObject *Sender)
 	}
 	std::string str = HexStringToBuf(text.c_str());
 	std::vector<uint8_t> data(str.begin(), str.end());
-	int status = udpClient.Send("", edAddress->Text, static_cast<unsigned short>(StrToInt(edPort->Text)), data);
+	int status = udpClient.Send(appSettings.udpClient, data);
 	if (status == 0)
 	{
 		AnsiString str;
 		str.sprintf("Sent %u byte(s)", data.size());
 		SetAppStatus(str);
 	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmUdpClient::edAddressChange(TObject *Sender)
+{
+	appSettings.udpClient.address = edAddress->Text;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmUdpClient::edPortChange(TObject *Sender)
+{
+	int val = StrToIntDef(edPort->Text, -1);
+	if (val > 0)
+	{
+		appSettings.udpClient.port = val;
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmUdpClient::memoChange(TObject *Sender)
+{
+	appSettings.udpClient.dataText = memo->Text;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmUdpClient::FormShow(TObject *Sender)
+{
+	edAddress->Text = appSettings.udpClient.address;
+	edPort->Text = appSettings.udpClient.port;
+	memo->Text = appSettings.udpClient.dataText;
 }
 //---------------------------------------------------------------------------
 

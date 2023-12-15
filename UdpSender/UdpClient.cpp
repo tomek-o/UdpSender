@@ -4,6 +4,7 @@
 #pragma hdrstop
 
 #include "UdpClient.h"
+#include "UdpClientConf.h"
 #include "IdUdpClient.hpp"
 #include "Log.h"
 #include "AppStatus.h"
@@ -27,30 +28,30 @@ UdpClient::~UdpClient(void)
 	delete client;
 }
 
-int UdpClient::Send(AnsiString bindAddress, AnsiString address, unsigned short port, const std::vector<uint8_t> &data)
+int UdpClient::Send(const UdpClientConf &conf, const std::vector<uint8_t> &data)
 {
 	SetAppStatus("");
-	if (bindAddress != lastBindAddress) {
+	if (conf.bindAddress != lastBindAddress) {
 		delete client;
 		client = new TIdUDPClient(NULL);
 		client->BroadcastEnabled = true;
-		if (bindAddress != "") {
-			client->Binding->IP = bindAddress;
+		if (conf.bindAddress != "") {
+			client->Binding->IP = conf.bindAddress;
 			try {
 				client->Binding->Bind();
 			} catch (EIdSocketError &exception) {
 				AnsiString msg;
-				msg.sprintf("DiscoveryClient: Failed to bind to %s address", bindAddress.c_str());
+				msg.sprintf("UDP client: Failed to bind to %s address", conf.bindAddress.c_str());
 				SetAppStatus(msg);
 				LOG("%s", msg.c_str());
 				return -1;
-            }
+			}
 		}
-		lastBindAddress = bindAddress;
+		lastBindAddress = conf.bindAddress;
 	}
 
-	client->Host = address;
-	client->Port = port;
+	client->Host = conf.address;
+	client->Port = conf.port;
 
 	//client->Broadcast(data, port);
 	unsigned int length = data.size();
