@@ -13,8 +13,13 @@ USEFORM("FormUdpClient.cpp", frmUdpClient);
 #pragma link "common.lib"
 #pragma link "indy.lib"
 
+#include <stdlib.h>
+#include <time.h>
+
 WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
+	srand(time(NULL));
+
 	try
 	{
 		Application->Initialize();
