@@ -352,9 +352,9 @@ object frmAbout: TfrmAbout
     object Copyright: TLabel
       Left = 8
       Top = 80
-      Width = 172
+      Width = 205
       Height = 13
-      Caption = 'Copyright '#169' Tomasz Ostrowski 2022'
+      Caption = 'Copyright '#169' Tomasz Ostrowski 2022 - 2024'
       IsControl = True
     end
     object lblVersion: TLabel
