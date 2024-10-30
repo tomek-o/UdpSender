@@ -222,8 +222,7 @@
         </optionset>
       </project>
       <FILELIST>
-        <FILE FILENAME="doc\changelog.h" CONTAINERID="" LOCALCOMMAND="" UNITNAME="" FORMNAME="" DESIGNCLASS=""/>
-        <FILE FILENAME="doc\doxygen.h" CONTAINERID="" LOCALCOMMAND="" UNITNAME="" FORMNAME="" DESIGNCLASS=""/>
+        <FILE FILENAME="_doc\changelog.h" CONTAINERID="" LOCALCOMMAND=""/>
         <FILE FILENAME="UdpSender.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="UdpSender" FORMNAME="" DESIGNCLASS=""/>
         <FILE FILENAME="UdpSender.res" CONTAINERID="ResTool" LOCALCOMMAND="" UNITNAME="UdpSender.res" FORMNAME="" DESIGNCLASS=""/>
         <FILE FILENAME="FormMain.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="FormMain" FORMNAME="frmMain" DESIGNCLASS="" ADDITIONAL="FormMain.h"/>
@@ -303,10 +302,10 @@
       </IDEOPTIONS>
     </BCBPROJECT>
 		<buildevents>
-			<buildevent file="turbocpp_template.bdsproj">
-				<precompile mode="0" cancancel="-1" capture="0" showconsole="0">$(PROJECTDIR)\build-tools\touch.exe $(PROJECTDIR)\FormAbout.cpp
+      <buildevent file="turbocpp_template.bdsproj">
+        <precompile mode="0" cancancel="-1" capture="0" showconsole="0">$(PROJECTDIR)\build-tools\touch.exe $(PROJECTDIR)\FormAbout.cpp
 </precompile>
-			</buildevent>
-		</buildevents>
+      </buildevent>
+    </buildevents>
 	</CPlusPlusBuilder.Personality>
 </BorlandProject>
